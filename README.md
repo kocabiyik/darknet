@@ -10,3 +10,17 @@ Yolo v4 source code: https://github.com/AlexeyAB/darknet
 For more information see the [Darknet project website](http://pjreddie.com/darknet).
 
 For questions or issues please use the [Google Group](https://groups.google.com/forum/#!forum/darknet).
+
+# Processing Video Frames
+
+## 1. Extract Frames from Video
+
+    bash extract-video-frames.sh video/my-video.mov
+
+This extracts video frames to video/frames_my-video directory.
+
+## 2. Apply YOLO for each frame
+
+    bash apply-yolo-to-frames.sh video/frames_my-video
+
+This command processes each frame and moves processed files to `frames_my-video_processed` directory.

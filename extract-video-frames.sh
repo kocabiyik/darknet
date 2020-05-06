@@ -1,0 +1,11 @@
+#!/bin/bash
+VIDEO_PATH=$1
+
+VIDEO_PATH_WITHOUT_EXTENSION=$(echo ${VIDEO_PATH} | cut -d'.' -f 1)
+VIDEO_FILE_WITHOUT_EXTENSION=$(echo ${VIDEO_PATH_WITHOUT_EXTENSION} | cut -d'/' -f 2)
+FRAMES_DIR="video/frames_${VIDEO_FILE_WITHOUT_EXTENSION}"
+
+# echo ${VIDEO_FILE_WITHOUT_EXTENSION}
+# echo ${FRAMES_DIR}
+mkdir -p ${FRAMES_DIR}
+ffmpeg -i ${VIDEO_PATH} ${FRAMES_DIR}/frame_%04d.jpg -s:v 1920x1080
