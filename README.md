@@ -24,3 +24,7 @@ This extracts video frames to video/frames_my-video directory.
     bash apply-yolo-to-frames.sh video/frames_my-video
 
 This command processes each frame and moves processed files to `frames_my-video_processed` directory.
+
+## 3. Recreate the video with ffmpeg
+
+ffmpeg  -framerate 29 -i video/frames_my-video_processed/plot_%04d.jpg -s:v 1920x1080 -c:v libx264 -profile:v high -crf 20 -pix_fmt yuv420p -r 30 my-new-video.mp4
